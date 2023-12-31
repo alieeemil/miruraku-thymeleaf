@@ -9,7 +9,8 @@
             </div>
             <hr />
             <ul class="nav nav-pills flex-column mb-auto">
-                <li><a th:href="@{/}" class="nav-link" th:classappend="${menu == 'home'} ? 'active'">ホーム</a></li>
+                <li><a th:href="@{/}" class="nav-link text-light" th:classappend="${menu == 'home'} ? 'active'">ホーム</a></li>
+                <li><a th:href="@{/table}" class="nav-link text-light" th:classappend="${menu == 'table'} ? 'active'">テーブル</a></li>
             </ul>
             <hr />
             <div>
