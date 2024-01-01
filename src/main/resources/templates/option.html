@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<th:block th:insert="~{fragments/head :: head}"></th:block>
+<body>
+<div class="content">
+    <aside th:replace="~{fragments/sidebar :: sidebar(option)}"></aside>
+    <main>
+        <h2>ラジオボタン</h2>
+        <div>
+            <input type="radio" id="admin" name="department" value="admin" th:checked="${active == 'admin'}" />
+            <label for="admin">管理部</label>
+        </div>
+        <div>
+            <input type="radio" id="human-resource" name="department" value="hr" th:checked="${active == 'hr'}" />
+            <label for="human-resource">人事部</label>
+        </div>
+        <div>
+            <input type="radio" id="sales" name="department" value="sales" th:checked="${active == 'sales'}" />
+            <label for="sales">営業部</label>
+        </div>
+        <div>
+            <input type="radio" id="information-system" name="department" value="is" th:checked="${active == 'is'}" />
+            <label for="information-system">情報システム部</label>
+        </div>
+        <h2 class="mt-5">チェックボックス</h2>
+        <div>
+            <input type="checkbox" id="manager" name="position" value="manager" th:checked="${#lists.contains(actives, 'manager')}" />
+            <label for="manager">部長</label>
+        </div>
+        <div>
+            <input type="checkbox" id="general" name="position" value="general" th:checked="${#lists.contains(actives, 'general')}" />
+            <label for="general">一般社員</label>
+        </div>
+        <div>
+            <input type="checkbox" id="temporary" name="position" value="temporary" th:checked="${#lists.contains(actives, 'temporary')}" />
+            <label for="temporary">派遣社員</label>
+        </div>
+    </main>
+</div>
+<th:block th:insert="~{fragments/script :: script}"></th:block>
+</body>
+</html>
