@@ -54,3 +54,7 @@ tbody tr {
 th, td {
     padding: .5rem;
 }
+
+input[type=radio], input[type=checkbox] {
+    margin-right: .25rem;
+}
