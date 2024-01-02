@@ -2,54 +2,51 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <th:block th:insert="~{fragments/head :: head}"></th:block>
 <body>
-<div class="content">
-  <aside th:replace="~{fragments/sidebar :: sidebar(table)}"></aside>
-  <main>
-    <h2>テーブル</h2>
-    <table>
-      <thead>
-      <tr>
-        <th>社員番号</th>
-        <th>氏名</th>
-        <th>部署</th>
-        <th>役職</th>
-      </tr>
-      </thead>
-      <tbody>
-      <!-- usersが空でない場合、usersの要素をuserに格納 -->
-      <tr th:if="${!#lists.isEmpty(users)}" th:each="user : ${users}">
-        <td th:text="${user.id}"></td>
-        <td th:text="${user.name}"></td>
-        <td th:text="${user.department}"></td>
-        <td th:text="${user.position}"></td>
-      </tr>
-      </tbody>
-    </table>
-    <h2 class="mt-5">要素数を指定したテーブル</h2>
-    <table>
-      <thead>
-      <tr>
-        <th>社員番号</th>
-        <th>氏名</th>
-        <th>部署</th>
-        <th>役職</th>
-      </tr>
-      </thead>
-      <tbody>
-      <!-- usersが空でない場合、0〜2をiに格納 -->
-      <tr th:if="${!#lists.isEmpty(users)}" th:each="i : ${#numbers.sequence(0, 2)}">
-        <!-- usersの要素の数がstartIndex + iより大きい場合、要素を表示 -->
-        <th:block th:if="${#lists.size(users) > startIndex + i}">
-          <td th:text="${users[startIndex + i].id}"></td>
-          <td th:text="${users[startIndex + i].name}"></td>
-          <td th:text="${users[startIndex + i].department}"></td>
-          <td th:text="${users[startIndex + i].position}"></td>
-        </th:block>
-      </tr>
-      </tbody>
-    </table>
-  </main>
-</div>
-<th:block th:insert="~{fragments/script :: script}"></th:block>
+  <div class="content">
+    <aside th:replace="~{fragments/sidebar :: sidebar(table)}"></aside>
+    <main>
+      <h2>テーブル</h2>
+      <table>
+        <thead>
+        <tr>
+          <th>社員番号</th>
+          <th>氏名</th>
+          <th>部署</th>
+          <th>役職</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${!#lists.isEmpty(users)}" th:each="user : ${users}">
+          <td th:text="${user.id}"></td>
+          <td th:text="${user.name}"></td>
+          <td th:text="${user.department}"></td>
+          <td th:text="${user.position}"></td>
+        </tr>
+        </tbody>
+      </table>
+      <h2 class="mt-5">要素数を指定したテーブル</h2>
+      <table>
+        <thead>
+        <tr>
+          <th>社員番号</th>
+          <th>氏名</th>
+          <th>部署</th>
+          <th>役職</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${!#lists.isEmpty(users)}" th:each="i : ${#numbers.sequence(0, 2)}">
+          <th:block th:if="${#lists.size(users) > startIndex + i}">
+            <td th:text="${users[startIndex + i].id}"></td>
+            <td th:text="${users[startIndex + i].name}"></td>
+            <td th:text="${users[startIndex + i].department}"></td>
+            <td th:text="${users[startIndex + i].position}"></td>
+          </th:block>
+        </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+  <th:block th:insert="~{fragments/script :: script}"></th:block>
 </body>
 </html>

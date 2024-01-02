@@ -2,12 +2,12 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <th:block th:insert="~{fragments/head :: head}"></th:block>
 <body>
-    <div class="content">
-        <aside th:replace="~{fragments/sidebar :: sidebar(home)}"></aside>
-        <main>
-            <h1>Hello <span th:text="${name}">World</span></h1>
-        </main>
-    </div>
-    <th:block th:insert="~{fragments/script :: script}"></th:block>
+  <div class="content">
+    <aside th:replace="~{fragments/sidebar :: sidebar(home)}"></aside>
+    <main>
+      <h1>Hello <span th:text="${name}">World</span></h1>
+    </main>
+  </div>
+  <th:block th:insert="~{fragments/script :: script}"></th:block>
 </body>
 </html>
