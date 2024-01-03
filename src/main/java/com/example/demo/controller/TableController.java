@@ -12,16 +12,16 @@ import java.util.List;
 @Controller
 public class TableController {
 
-    @Autowired
-    private UserService userService;
+  @Autowired
+  private UserService userService;
 
-    @GetMapping("/table")
-    public String table(Model model) {
-        List<User> users = userService.getUsers();
+  @GetMapping("/table")
+  public String table(Model model) {
+    List<User> users = userService.getUsers();
 
-        model.addAttribute("users", users);
-        model.addAttribute("startIndex", 0);
+    model.addAttribute("users", users);
+    model.addAttribute("startIndex", 0);
 
-        return "table";
-    }
+    return "table";
+  }
 }

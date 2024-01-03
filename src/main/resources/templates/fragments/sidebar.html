@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <body>
-    <aside th:fragment="sidebar(menu)">
-        <div class="d-flex flex-column flex-shrink-0 h-100 p-5 text-bg-dark">
-            <div class="d-flex flex-column row-gap-1 text-light">
-                <span>👀 ミルラク</span>
-                <span>Thymeleaf コードサンプル</span>
-            </div>
-            <hr />
-            <ul class="nav nav-pills flex-column mb-auto">
-                <li><a th:href="@{/}" class="nav-link text-light" th:classappend="${menu == 'home'} ? 'active'">ホーム</a></li>
-                <li><a th:href="@{/option}" class="nav-link text-light" th:classappend="${menu == 'option'} ? 'active'">ラジオボタンとチェックボックス</a></li>
-                <li><a th:href="@{/table}" class="nav-link text-light" th:classappend="${menu == 'table'} ? 'active'">テーブル</a></li>
-            </ul>
-            <hr />
-            <div>
-                <span>©︎ 2023 </span><a href="https://miruraku.com" target="_blank" class="link-light link-underline-opacity-0-hover">ミルラク</a>
-            </div>
-        </div>
-    </aside>
+  <aside th:fragment="sidebar(menu)">
+    <div class="d-flex flex-column flex-shrink-0 h-100 p-5 text-bg-dark">
+      <div class="d-flex flex-column row-gap-1 text-light">
+        <span>👀 ミルラク</span>
+        <span>Thymeleaf コードサンプル</span>
+      </div>
+      <hr />
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li><a th:href="@{/}" class="nav-link text-light" th:classappend="${menu == 'home'} ? 'active'">ホーム</a></li>
+        <li><a th:href="@{/option}" class="nav-link text-light" th:classappend="${menu == 'option'} ? 'active'">ラジオボタンとチェックボックス</a></li>
+        <li><a th:href="@{/dropdowns}" class="nav-link text-light" th:classappend="${menu == 'dropdowns'} ? 'active'">ドロップダウンリスト</a></li>
+        <li><a th:href="@{/table}" class="nav-link text-light" th:classappend="${menu == 'table'} ? 'active'">テーブル</a></li>
+      </ul>
+      <hr />
+      <div>
+        <span>©︎ 2023 </span><a href="https://miruraku.com" target="_blank" class="link-light link-underline-opacity-0-hover">ミルラク</a>
+      </div>
+    </div>
+  </aside>
 </body>
 </html>
