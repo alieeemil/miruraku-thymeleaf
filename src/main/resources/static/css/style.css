@@ -58,3 +58,11 @@ th, td {
 input[type=radio], input[type=checkbox] {
     margin-right: .25rem;
 }
+
+select {
+    margin-left: .25rem;
+}
+
+select[multiple] {
+    vertical-align: top;
+}

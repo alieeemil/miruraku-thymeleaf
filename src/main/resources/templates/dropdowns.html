@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<th:block th:insert="~{fragments/head :: head}"></th:block>
+<body>
+  <div class="content">
+    <aside th:replace="~{fragments/sidebar :: sidebar(dropdowns)}"></aside>
+    <main>
+      <h2>ドロップダウンリスト</h2>
+      <label>
+        部署
+        <select name="department">
+          <option value="100" th:selected="${active == '100'}">管理部</option>
+          <option value="200" th:selected="${active == '200'}">人事部</option>
+          <option value="300" th:selected="${active == '300'}">営業部</option>
+          <option value="800" th:selected="${active == '800'}">情報システム部</option>
+        </select>
+      </label>
+      <h2 class="mt-5">th:eachを使用したドロップダウンリスト</h2>
+      <label>
+        部署
+        <select name="department-iteration">
+          <th:block th:each="department : ${departments}">
+              <option th:value="${department.key}" th:text="${department.value}" th:selected="${active == department.key}"></option>
+          </th:block>
+        </select>
+      </label>
+      <h2 class="mt-5">複数選択可能なドロップダウンリスト</h2>
+      <label>
+        部署
+        <select multiple name="department-multiple">
+          <option value="100" th:selected="${#lists.contains(actives, '100')}">管理部</option>
+          <option value="200" th:selected="${#lists.contains(actives, '200')}">人事部</option>
+          <option value="300" th:selected="${#lists.contains(actives, '300')}">営業部</option>
+          <option value="800" th:selected="${#lists.contains(actives, '800')}">情報システム部</option>
+        </select>
+      </label>
+      <h2 class="mt-5">th:eachを使用した複数選択可能なドロップダウンリスト</h2>
+      <label>
+        部署
+        <select multiple name="department-iteration-multiple">
+          <th:block th:each="department : ${departments}">
+            <option th:value="${department.key}" th:text="${department.value}" th:selected="${#lists.contains(actives, department.key)}"></option>
+          </th:block>
+        </select>
+      </label>
+    </main>
+  </div>
+  <th:block th:insert="~{fragments/script :: script}"></th:block>
+</body>
+</html>
