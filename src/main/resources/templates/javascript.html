@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<th:block th:insert="~{fragments/head :: head}"></th:block>
+<body>
+  <div class="content">
+    <aside th:replace="~{fragments/sidebar :: sidebar(javascript)}"></aside>
+    <main>
+      <h2>外部のJavaScriptファイルを読み込む</h2>
+      <p id="text">Hello</p>
+      <button type="button" id="button">文字を変える</button>
+      <h2 class="mt-5">JavaScriptを埋め込む (インライン処理)</h2>
+      <p id="text-inline">Hello</p>
+      <button type="button" id="button-inline">文字を変える</button>
+    </main>
+  </div>
+  <th:block th:insert="~{fragments/script :: script}"></th:block>
+  <script th:src="@{/js/script.js}"></script>
+  <script th:inline="javascript">
+    const btnInline = document.querySelector("#button-inline");
+
+    btnInline.addEventListener("click", () => {
+      const textInline = document.querySelector("#text-inline");
+      textInline.textContent = /*[[${text}]]*/ "Hello World";
+    });
+  </script>
+</body>
+</html>

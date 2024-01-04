@@ -47,12 +47,12 @@ tbody {
 }
 
 tbody tr {
-  border-top: 1px dashed var(--gray);
-  border-bottom: 1px dashed var(--gray);
+  border-top: 1px solid var(--gray);
+  border-bottom: 1px solid var(--gray);
 }
 
 th, td {
-  padding: .5rem;
+  padding: .25rem .5rem;
 }
 
 input[type=radio], input[type=checkbox] {
@@ -61,8 +61,14 @@ input[type=radio], input[type=checkbox] {
 
 select {
   margin-left: .25rem;
+  padding: .25rem 0;
 }
 
 select[multiple] {
   vertical-align: top;
+}
+
+button {
+  border-width: 1px;
+  padding: .25rem .5rem;
 }
