@@ -3,7 +3,7 @@
 <th:block th:insert="~{fragments/head :: head}"></th:block>
 <body>
   <div class="content">
-    <aside th:replace="~{fragments/sidebar :: sidebar(javascript)}"></aside>
+    <aside th:replace="~{fragments/sidebar :: sidebar('javascript')}"></aside>
     <main>
       <h2>外部のJavaScriptファイルを読み込む</h2>
       <p id="text">Hello</p>
